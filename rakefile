@@ -19,7 +19,7 @@ def extract_files_from_fsproj fsproj_filename
   n.css('ItemGroup Compile').map { |i| i['Include'] }
 end
 
-visual_studio_project_file = ENV['FSHARP_PROJECT'] || "/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj"
+visual_studio_project_file = ENV['FSHARP_PROJECT']
 files = extract_files_from_fsproj visual_studio_project_file
 files = files.map {|f| f.gsub('\\', '/')}
 files = files.map {|f| Pathname.new(visual_studio_project_file).dirname + f}
@@ -27,9 +27,9 @@ current_directory = Pathname.new `pwd`
 files = files.map {|f| f.relative_path_from(current_directory)}
 files = files.map {|f| f.to_s}
 
-fsharp = ENV["FSHARP_EXE"] || "/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe"
+fsharp = ENV["FSHARP_COMPILER_EXE"] || "fsc.exe"
 fsharp_options = " --target:library --warn:3 --warnaserror:76 --noframework "
-mono = "/Library/Frameworks/Mono.framework/Versions/2.4.2.3/bin/mono"
+mono = ENV['MONO'] || "/Library/Frameworks/Mono.framework/Versions/2.4.2.3/bin/mono"
 
 fsharp_src_files = FileList.new(*files)
 combined_object_file = ENV["FSHARP_DLL"] || "fsharp.dll"
