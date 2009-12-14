@@ -1,10 +1,13 @@
-# Calling:
+# You'll need to provide the following environment variables:
 #
-# FSHARP_PROJECT=/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj \
-#   FSHARP_EXE=/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe \
-#   FSHARP_DLL=fsharp.dll \
-#   rake
+# FSHARP_COMPILER_EXE The path to fsc.exe.
+# FSHARP_PROJECT The path to the Visual Studio fsproj file
+# FSHARP_DLL The destination dll name (passed to fsc.exe as the -o option)
+# MONO The location of mono.  The default is "/Library/Frameworks/Mono.framework/Versions/2.4.2.3/bin/mono"
+# 
+# Sample:
 #
+# rake FSHARP_PROJECT=/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj FSHARP_COMPILER_EXE=/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe FSHARP_DLL=fsharp.dll
 
 require 'rubygems'
 require 'nokogiri'
