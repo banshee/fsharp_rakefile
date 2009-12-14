@@ -1,0 +1,10 @@
+To use this rakefile:
+
+* Put it in the root directory of your MonoTouch project.
+* In MonoDevelop, bring up the project options for your project (right-click on the project file, choose 'options')
+* Choose General > Custom Commands
+* Add a 'before build' step
+* Figure out the right values for FSHARP_PROJECT, FSHARP_EXE, FSHARP_DLL, and MONO
+* In the 'command' field, enter the rake command:
+
+rake default FSHARP_PROJECT=/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj FSHARP_COMPILER_EXE=/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe FSHARP_DLL=fsharp.dll 
