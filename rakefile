@@ -7,7 +7,7 @@
 # 
 # Sample:
 #
-# rake FSHARP_PROJECT=/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj FSHARP_COMPILER_EXE=/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe FSHARP_DLL=fsharp.dll
+# rake FSHARP_PROJECT=/Users/jamesmoore/dev/FSharpEvents/FSharpEvents/FSharpEvents.fsproj FSHARP_COMPILER_EXE=/Users/jamesmoore/dev/FSharp-1.9.7.8/bin/fsc.exe FSHARP_DLL=fsharp.dll
 
 require 'rubygems'
 require 'nokogiri'
@@ -28,6 +28,7 @@ files = files.map {|f| f.relative_path_from(current_directory)}
 files = files.map {|f| f.to_s}
 
 fsharp = ENV["FSHARP_COMPILER_EXE"] || "fsc.exe"
+monotouch_dll = ENV["MONOTOUCH_DLL_OPTION"] || "-r:/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll"
 fsharp_options = " --target:library --warn:3 --warnaserror:76 --noframework "
 mono = ENV['MONO'] || "/Library/Frameworks/Mono.framework/Versions/2.4.2.3/bin/mono"
 
@@ -35,7 +36,7 @@ fsharp_src_files = FileList.new(*files)
 combined_object_file = ENV["FSHARP_DLL"] || "fsharp.dll"
 
 file combined_object_file => fsharp_src_files do |t|
-  sh "#{mono} #{fsharp} #{fsharp_options} -o #{combined_object_file} #{t.prerequisites.join " "}"
+  sh "#{mono} #{fsharp} #{fsharp_options} #{monotouch_dll} -o #{combined_object_file} #{t.prerequisites.join " "}"
 end
 
 task :default => combined_object_file
