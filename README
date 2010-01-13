@@ -8,3 +8,6 @@ To use this rakefile:
 * In the 'command' field, enter the rake command:
 
 rake default FSHARP_PROJECT=/Users/jamesmoore/dev/deleteme1/Library1/Library1/MonoTouchTest.fsproj FSHARP_COMPILER_EXE=/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe FSHARP_DLL=fsharp.dll 
+
+This sample is for a VS project in /Users/jamesmoore/dev/deleteme1/Library1 and a compiler in
+/Users/jamesmoore/dev/FSharp-1.9.6.16/bin/fsc.exe - you'll need to change it to reflect your own locations.
