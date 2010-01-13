@@ -3,6 +3,7 @@ NOTE: This is very much a work-in-progress.  Think of it as a sample for your ow
 To use this rakefile:
 
 * Put it in the root directory of your MonoTouch project.
+* Try it from a command line.   There's nothing special about running it inside MonoDevelop.
 * In MonoDevelop, bring up the project options for your project (right-click on the project file, choose 'options')
 * Choose General > Custom Commands
 * Add a 'before build' step
